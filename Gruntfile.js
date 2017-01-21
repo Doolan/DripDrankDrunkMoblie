@@ -46,7 +46,7 @@ module.exports = function (grunt) {
       },
       jsTest: {
         files: ['test/spec/{,*/}*.js'],
-        tasks: ['karma']//['newer:jshint:test', 'newer:jscs:test', 'karma']
+        tasks: []//['karma']//['newer:jshint:test', 'newer:jscs:test', 'karma']
       },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
