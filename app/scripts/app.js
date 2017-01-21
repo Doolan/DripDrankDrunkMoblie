@@ -44,9 +44,9 @@ angular
       .state('home', {
         url: '/',
         abstract: false,
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl',
+        controllerAs: 'login'
       })
       .state('about', {
         url: '/about',
@@ -54,5 +54,19 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
+      })
+      .state('drink', {
+        url: '/drink',
+        abstract: false,
+        templateUrl: 'views/drink.html',
+        controller: 'DrinkCtrl',
+        controllerAs: 'drink'
+      })
+      .state('dd', {
+        url: '/dd',
+        abstract: false,
+        templateUrl: 'views/dd.html',
+        controller: 'DdCtrl',
+        controllerAs: 'dd'
       });
   });
