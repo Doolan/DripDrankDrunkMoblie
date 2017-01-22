@@ -1,0 +1,27 @@
+<div class="">
+  <div class="ui inverted primary fixed top menu">
+    <div class="item">
+      <h2 class="heading brand">D.D.D..</h2>
+    </div>
+    <div class="right menu">
+      <a ui-sref="user.drink" ui-sref-active="active" class="item">
+        <i class="large icons">
+        <i class="inverted cocktail icon"></i>
+        <i class="inverted corner add icon"></i></i>
+      </a>
+      <a ui-sref="user.dd" ui-sref-active="active" class="item">
+        <i class="large icons">
+          <i class="inverted user icon"></i>
+          <i class="inverted corner add icon"></i></i>
+      </a>
+      <!--<a ui-sref="" ui-sref-active="active" class="item"><i class="inverted large tasks icon"></i></a>-->
+      <!--<a ui-sref="user.settings" ui-sref-active="active" class="item"><i class="inverted large settings icon"></i></a>-->
+      <a ui-sref="login" ng-click="logout()" class="item"><i class="inverted large sign out icon"></i></a>
+    </div>
+  </div>
+</div>
+<div class="vertical-spacer"></div>
+<div class="vertical-spacer"></div>
+<div class="" id="parent">
+  <div ui-view></div>
+</div>

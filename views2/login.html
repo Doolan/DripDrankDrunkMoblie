@@ -1,0 +1,27 @@
+
+<div class="">
+    <div class="ui inverted primary fixed top menu">
+        <div class="item">
+            <h2 class="heading brand">Drink.Drank.Drunk.</h2>
+        </div>
+    </div>
+</div>
+<div class="vertical-spacer"></div>
+<div class="ui container">
+    <div class="vertical-spacer"></div>
+    <div class="vertical-spacer"></div>
+    <label class="title">Login</label>
+    <div class="vertical-spacer"></div>
+    <form class="ui form" name="loginForm">
+        <div class="field">
+            <label>Username</label>
+            <input type="text" placeholder="Username" name="username">
+        </div>
+        <div class="field">
+            <label>Password</label>
+            <input type="password" placeholder="Password" name="password">
+        </div>
+        <button class="ui basic grey fluid button" type="submit" ng-click= "login.$valid && go('/dd')">Login</button>
+        <div class="ui error message"></div>
+    </form>
+</div>
