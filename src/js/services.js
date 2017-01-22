@@ -19,7 +19,7 @@
                 }
             }).then(function (data) {
                 console.log('SUCCESS - login', data.data, data.data.access_token);
-                setToken('auth-token', data.data.access_token);
+                setToken('auth-token','Bearer ' + data.data.access_token);
                 $http.defaults.headers.common.Authorization = 'Bearer ' + data.data.access_token;
                 token = 'Bearer ' + data.data.access_token;
                 callback(data.data.access_token);
@@ -41,7 +41,7 @@
                     'Accept': "application/json"
                 }
             }).then(function (response) {
-                setToken('auth-token', response.data.access_token);
+                setToken('auth-token', 'Bearer ' + response.data.access_token);
                 $http.defaults.headers.common.Authorization = 'Bearer ' + response.data.access_token;
                 token = 'Bearer ' + response.data.access_token;
                 $state.go('user.settings');
