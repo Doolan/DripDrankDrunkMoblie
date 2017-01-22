@@ -67,7 +67,10 @@ angular.module('dripDrankDrunkMoblieApp')
         };
 
         var alertWingman = function(bac){
-            DrinkService.alertWingMan(bac);
+            if(!getToken('drunk')) {
+                DrinkService.alertWingMan(bac);
+            }
+            setToken(bac);
         };
 
     }]);
