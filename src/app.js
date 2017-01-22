@@ -1,8 +1,8 @@
 'use strict';
 
 (function () {
-    var app = angular.module('dripDrankDrunkMoblieApp', ['DataManager', 'ui.router', 'ngSanitize']);
-        app.run(function ($state, $rootScope) {
+    var app = angular.module('dripDrankDrunkMoblieApp', ['DataManager', 'ui.router', 'ngSanitize', 'angular-centered']);
+    app.run(function ($state, $rootScope) {
             $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {
                 if (angular.isObject(error) && angular.isString(error.code)) {
                     switch (error.code) {
@@ -29,20 +29,20 @@
         .config(function ($stateProvider, $urlRouterProvider) {
             $urlRouterProvider.otherwise('/');
             $stateProvider
-             .state('user', {
-               url: '/user',
-               abstract: true,
-               templateUrl: 'views/user.html',
-               controller: 'UserCtrl',
-               controllerAs: 'user',
-                 resolve: {
-                     security: ['$q', function ($q) {
-                         if (!hasAccess()) {
-                             return $q.reject({ code: 'NOT_AUTH' });
-                         }
-                     }]
-                 }
-             })
+                .state('user', {
+                    url: '/user',
+                    abstract: true,
+                    templateUrl: 'views/user.html',
+                    controller: 'UserCtrl',
+                    controllerAs: 'user',
+                    resolve: {
+                        security: ['$q', function ($q) {
+                            if (!hasAccess()) {
+                                return $q.reject({code: 'NOT_AUTH'});
+                            }
+                        }]
+                    }
+                })
                 .state('home', {
                     url: '/',
                     abstract: false,
@@ -52,7 +52,7 @@
                     resolve: {
                         security: ['$q', function ($q) {
                             if (hasAccess()) {
-                                return $q.reject({ code: 'ALREADY_AUTH' });
+                                return $q.reject({code: 'ALREADY_AUTH'});
                             }
                         }]
                     }
@@ -66,12 +66,18 @@
 
                 })
                 .state('user.dd', {
-                    url: '/dd',
+                    url: '/wingman',
                     abstract: false,
                     templateUrl: 'views2/dd.html',
                     controller: 'DdCtrl',
                     controllerAs: 'dd'
-                });
+                })
+                .state('user.bac', {
+                    url: '/bac',
+                    abstract: false,
+                    templateUrl: 'views2/bac.html',
+                    controller: 'BacCtrl'
+                })
         });
 
     app.exports = app;
