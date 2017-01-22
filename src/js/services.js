@@ -3,7 +3,7 @@
 (function () {
     var app = angular.module('DataManager', []);
     var host = "http://23.99.27.197:5000/";
-    var token;
+    //var token;
     app.service('AuthService', ['$http', function ($http) {
         var self = this;
 
@@ -29,6 +29,27 @@
                 //UPDATE STUFF FOR INCORRECT USER NAME PASSWORD VS SERVER ERROR
             });
         };
+
+        self.newUser = function (username, pwd) {
+            var pkt = { email: username, password: pwd };
+            $http({
+                method: 'POST',
+                url: host + "newUser",
+                data: pkt,
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json"
+                }
+            }).then(function (response) {
+                setToken('auth-token', response.data.access_token);
+                $http.defaults.headers.common.Authorization = 'Bearer ' + response.data.access_token;
+                token = 'Bearer ' + response.data.access_token;
+                $state.go('user.settings');
+            }, function errorCallback(response) {
+                console.log('error occured: ', response);
+                callback('', response);
+            });
+        };
     }]);
     app.service('DrinkService', ['$http', function ($http) {
         var self = this;
@@ -42,7 +63,7 @@
                 headers: {
                     'Content-Type': "application/json",
                     'Accept': "application/json",
-                    'Authorization': token
+                    'Authorization': getToken('auth-token')
                 }
             });
         };
@@ -73,7 +94,7 @@
                 headers: {
                     'Content-Type': "application/json",
                     'Accept': "application/json",
-                    'Authorization': token
+                    'Authorization': getToken('auth-token')
                 }
             });
         };
@@ -88,7 +109,7 @@
                 headers: {
                     'Content-Type': "application/json",
                     'Accept': "application/json",
-                    'Authorization': token
+                    'Authorization': getToken('auth-token')
                 }
             }).then(function(response){
                 if(response.data.need){
@@ -109,7 +130,7 @@
                 headers: {
                     'Content-Type': "application/json",
                     'Accept': "application/json",
-                    'Authorization': token
+                    'Authorization': getToken('auth-token')
                 }
             });
         };
@@ -124,7 +145,7 @@
                 headers: {
                     'Content-Type': "application/json",
                     'Accept': "application/json",
-                    'Authorization': token
+                    'Authorization': getToken('auth-token')
                 }
             }).then(function (response) {
                 callback(response.data);
