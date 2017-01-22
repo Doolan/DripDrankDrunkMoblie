@@ -78,6 +78,13 @@
                     templateUrl: 'views2/bac.html',
                     controller: 'BacCtrl'
                 })
+                .state('user.settings', {
+                    url: '/settings',
+                    abstract: false,
+                    templateUrl: 'views/settings.html',
+                    controller: 'SettingsCtrl',
+                    controllerAs: 'settings'
+                })
         });
 
     app.exports = app;
