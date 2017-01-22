@@ -1,0 +1,46 @@
+<div class="ui container">
+    <div class="vertical-spacer"></div>
+    <h1 class="ui centered header">What are you drinking?</h1>
+    <div class="vertical-half-spacer"></div>
+    <div class="vertical-half-spacer"></div>
+    <button class="ui fluid basic yellow button" ng-click="logDrink('beer')">
+        <div class="ui tiny image">
+            <img src="/images/beer.png">
+        </div>
+        <span class="ui header">Beer</span>
+    </button>
+    <div class="vertical-half-spacer"></div>
+    <button class="ui fluid basic brown button" ng-click="logDrink('liquor')">
+        <div class="ui tiny image">
+            <img src="/images/liquor.png">
+        </div>
+        <span class="ui header">Liquor</span>
+    </button>
+    <div class="vertical-half-spacer"></div>
+    <button class="ui fluid basic olive button" ng-click="logDrink('mixed drink')">
+        <div class="ui tiny image">
+            <img src="/images/martini.png">
+        </div>
+        <span class="ui header">Mixed Drink</span>
+    </button>
+    <div class="vertical-half-spacer"></div>
+    <button class="ui fluid basic red button" ng-click="logDrink('wine')">
+        <div class="ui tiny image">
+            <img src="/images/wine.png">
+        </div>
+        <span class="ui header">Wine</span>
+    </button>
+    <div class="vertical-half-spacer"></div>
+    <button class="ui fluid basic teal button" ng-click="logDrink('shot')">
+        <div class="ui tiny image">
+            <img src="/images/shot.png">
+        </div>
+        <span class="ui header">Shot</span>
+    </button>
+    <div class="ui basic modal">
+        <!--<i class="close icon"></i>-->
+        <h1 class="ui centered header">
+            {{ modalTitle}}
+        </h1>
+    </div>
+</div>
