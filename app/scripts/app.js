@@ -12,26 +12,34 @@ angular
   .module('dripDrankDrunkMoblieApp', [
     'ngResource',
     'ui.router',
-    'ngSanitize'
+    'ngSanitize',
+    'DataManager'
   ])
-  // .config(function ($routeProvider) {
-  //   $routeProvider
-  //     .when('/', {
-  //       templateUrl: 'views/main.html',
-  //       controller: 'MainCtrl',
-  //       controllerAs: 'main'
-  //     })
-  //     .when('/about', {
-  //       templateUrl: 'views/about.html',
-  //       controller: 'AboutCtrl',
-  //       controllerAs: 'about'
-  //     })
-  //     .otherwise({
-  //       redirectTo: '/'
-  //     });
+  .run(function ($state, $rootScope) {
+    $rootScope.$on('$stateChangeError', function (evt, toState, toParams, fromState, fromParams, error) {
+      if (angular.isObject(error) && angular.isString(error.code)) {
+        switch (error.code) {
+          case 'NOT_AUTH':
+            // go to the login page
+            $state.go('home');
+            break;
+          case 'ALREADY_AUTH':
+            //go to the dash board
+            $state.go('dd');
+            break;
+          default:
+            // set the error object on the error state and go there
+            $state.get('error').error = error;
+            $state.go('error');
+        }
+      }
+      else {
+        // unexpected error
+        $state.go('home');
+      }
+    });
+  })
   .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.when('/user', '/user/history');
-
     $urlRouterProvider.otherwise('/');
     $stateProvider
       // .state('user', {
@@ -46,7 +54,14 @@ angular
         abstract: false,
         templateUrl: 'views/login.html',
         controller: 'LoginCtrl',
-        controllerAs: 'login'
+        controllerAs: 'login',
+        resolve: {
+          security: ['$q', function ($q) {
+            if (hasAccess()) {
+              return $q.reject({ code: 'ALREADY_AUTH' });
+            }
+          }]
+        }
       })
       .state('about', {
         url: '/about',
@@ -60,13 +75,27 @@ angular
         abstract: false,
         templateUrl: 'views/drink.html',
         controller: 'DrinkCtrl',
-        controllerAs: 'drink'
+        controllerAs: 'drink',
+        resolve: {
+          security: ['$q', function ($q) {
+            if (!hasAccess()) {
+              return $q.reject({ code: 'NOT_AUTH' });
+            }
+          }]
+        }
       })
       .state('dd', {
         url: '/dd',
         abstract: false,
         templateUrl: 'views/dd.html',
         controller: 'DdCtrl',
-        controllerAs: 'dd'
+        controllerAs: 'dd',
+        resolve: {
+          security: ['$q', function ($q) {
+            if (!hasAccess()) {
+              return $q.reject({ code: 'NOT_AUTH' });
+            }
+          }]
+        }
       });
   });

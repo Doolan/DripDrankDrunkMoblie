@@ -8,7 +8,7 @@
  * Controller of the dripDrankDrunkMoblieApp
  */
 angular.module('dripDrankDrunkMoblieApp')
-  .controller('DrinkCtrl', ['$scope', function ($scope) {
+  .controller('DrinkCtrl', ['$scope', 'DrinkService', function ($scope, DrinkService) {
     this.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -28,6 +28,7 @@ angular.module('dripDrankDrunkMoblieApp')
         ;
       var label = "" + $scope.logLabel;
       var name = "" + drinkName;
+      DrinkService.logDrink(drinkName);
       if (label.includes(name)) {
         if (label.includes("another")) {
           $scope.logLabel = "Logged " + name + " again.";
