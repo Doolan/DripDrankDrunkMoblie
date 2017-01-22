@@ -33,21 +33,21 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="bac.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="bac.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/src/js/controllers2/bac.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="27" column="24" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.7530726">
+                  <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="dd.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="dd.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/controllers2/dd.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.4364896">
-                  <caret line="30" column="17" selection-start-line="28" selection-start-column="16" selection-end-line="30" selection-end-column="17" />
+                <state vertical-scroll-proportion="-13.620689">
+                  <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
                   <folding />
                 </state>
               </provider>
@@ -107,15 +107,25 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="services.js" pinned="false" current-in-tab="true">
+          <file leaf-file-name="services.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/src/js/services.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.27821228">
-                  <caret line="85" column="28" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="28" />
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="85" column="12" selection-start-line="85" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
                   <folding>
                     <element signature="e#368#629#0" expanded="false" />
                     <element signature="e#4027#4497#0" expanded="false" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="authentication.js" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/js/authentication.js">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.2849162">
+                  <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -163,9 +173,10 @@
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/src/js/services.js" />
         <option value="$PROJECT_DIR$/views2/bac.html" />
-        <option value="$PROJECT_DIR$/src/js/controllers2/bac.js" />
         <option value="$PROJECT_DIR$/src/js/controllers2/drink.js" />
         <option value="$PROJECT_DIR$/src/js/controllers2/dd.js" />
+        <option value="$PROJECT_DIR$/src/js/authentication.js" />
+        <option value="$PROJECT_DIR$/src/js/controllers2/bac.js" />
       </list>
     </option>
   </component>
@@ -596,22 +607,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/js/controllers2/bac.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="27" column="24" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views2/dd.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.384615">
-          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/controllers2/drink.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -628,10 +623,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views2/dd.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-14.384615">
+          <caret line="22" column="34" selection-start-line="22" selection-start-column="34" selection-end-line="22" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/services.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.27821228">
-          <caret line="85" column="28" selection-start-line="85" selection-start-column="25" selection-end-line="85" selection-end-column="28" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="12" selection-start-line="85" selection-start-column="0" selection-end-line="86" selection-end-column="0" />
           <folding>
             <element signature="e#368#629#0" expanded="false" />
             <element signature="e#4027#4497#0" expanded="false" />
@@ -639,10 +642,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/authentication.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2849162">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/controllers2/dd.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4364896">
-          <caret line="30" column="17" selection-start-line="28" selection-start-column="16" selection-end-line="30" selection-end-column="17" />
+        <state vertical-scroll-proportion="-13.620689">
+          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/controllers2/bac.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7530726">
+          <caret line="66" column="10" selection-start-line="66" selection-start-column="10" selection-end-line="66" selection-end-column="10" />
           <folding />
         </state>
       </provider>

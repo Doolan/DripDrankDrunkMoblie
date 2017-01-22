@@ -13,7 +13,7 @@ var removeToken = function(token) {
 };
 
 var clearTokens = function() {
-    var tokenList = ['auth-token'];
+    var tokenList = ['auth-token','drunk'];
     tokenList.forEach(function(token) {
         removeToken(token);
     });
