@@ -19,5 +19,6 @@ angular.module('dripDrankDrunkMoblieApp')
             $('.ui.modal')
                 .modal('setting', 'closable', true)
                 .modal('show');
+            DrinkService.logDrink(drinkName);
         };
     }]);

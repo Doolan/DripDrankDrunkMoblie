@@ -46,6 +46,37 @@
                 }
             });
         };
+        self.getDrinks = function(callback){
+            var pkt = {};
+            $http({
+                method: 'POST',
+                url: host + "getTonight",
+                data: pkt,
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json"
+                }
+            }).then(function (data) {
+               console.log(data);
+                callback(data.data);
+            }, function errorCallback(response) {
+                console.log('error occured: ', response);
+                callback('', response);
+            });
+        };
+        self.alertWingMan = function (bac) {
+            var pkt = { bac: bac };
+            $http({
+                method: 'POST',
+                url: host + "textDD",
+                //data: pkt,
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': token
+                }
+            });
+        };
     }]);
     app.service('DDService', ['$http','$state', function ($http,$state) {
         var self = this;
@@ -80,6 +111,23 @@
                     'Accept': "application/json",
                     'Authorization': token
                 }
+            });
+        };
+    }]);
+    app.service('DataService', ['$http', function($http) {
+        var self = this;
+
+        self.getBio = function (callback) {
+            $http({
+                method: 'GET',
+                url: host + "getBio",
+                headers: {
+                    'Content-Type': "application/json",
+                    'Accept': "application/json",
+                    'Authorization': token
+                }
+            }).then(function (response) {
+                callback(response.data);
             });
         };
     }]);
