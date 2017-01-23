@@ -2,44 +2,48 @@
 
 
 angular.module('dripDrankDrunkMoblieApp')
-    .controller('BacCtrl', ['$scope', '$http', 'DrinkService', 'DataService', function ($scope, $http, DrinkService,DataService) {
-            $scope.bodyFactor = null;;
-            $scope.drinks = null;
-            $scope.bac = 0.0;
+    .controller('BacCtrl', ['$scope', '$http', 'DrinkService', 'DataService', function ($scope, $http, DrinkService, DataService) {
+        $scope.bodyFactor = null;;
+        $scope.drinks = null;
+        $scope.bac = 0.0;
 
-        DrinkService.getDrinks(function(data, err){
-            if(err) {
-                return;
-            }
-            $scope.drinks = data.map(function(drink){
-                drink.time = moment(drink.drinkTime);
-                return drink;
-            });
-            $scope.drinks.sort(function (a, b) {
-                if (a.time < b.time) {
-                    return -1;
-                }
-                else if (a.time === b.time) {
-                    return 0;
-                } else {
-                    return 1;
-                }
-            });
-            finishBac();
 
+        $scope.$on('$viewContentLoaded', function () {
+            DrinkService.getDrinks(function (data, err) {
+                if (err) {
+                    return;
+                }
+                $scope.drinks = data.map(function (drink) {
+                    drink.time = moment(drink.drinkTime);
+                    return drink;
+                });
+                $scope.drinks.sort(function (a, b) {
+                    if (a.time < b.time) {
+                        return -1;
+                    }
+                    else if (a.time === b.time) {
+                        return 0;
+                    } else {
+                        return 1;
+                    }
+                });
+                finishBac();
+
+            });
+
+            DataService.getBio(function (data) {
+                $scope.bodyFactor = (data.sex === 'male' ? 0.68 : 0.55) * data.weight * 454;
+                //next step
+                finishBac();
+            });
         });
 
-        DataService.getBio(function(data){
-            $scope.bodyFactor = (data.sex === 'male' ? 0.68 : 0.55) * data.weight * 454;
-            //next step
-            finishBac();
-        });
 
-        var finishBac = function(){
-            if($scope.bodyFactor && $scope.drinks){
+        var finishBac = function () {
+            if ($scope.bodyFactor && $scope.drinks) {
                 generateBAC($scope.drinks);
-            }else{
-                return;
+            } else {
+                console.log("waiting", $scope.drinks, $scope.bodyFactor);
             }
         };
 
@@ -59,18 +63,17 @@ angular.module('dripDrankDrunkMoblieApp')
             publishNewBac(bac);
         };
 
-        var publishNewBac = function(bac){
+        var publishNewBac = function (bac) {
             $scope.bac = bac.toFixed(3);
-            if(bac > 0.07){
+            if (bac > 0.07) {
                 alertWingman();
             }
         };
 
-        var alertWingman = function(bac){
-            if(!getToken('drunk')) {
+        var alertWingman = function (bac) {
+            if (!getToken('drunk')) {
                 DrinkService.alertWingMan(bac);
             }
             setToken(bac);
         };
-
     }]);

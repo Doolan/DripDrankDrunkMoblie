@@ -89,7 +89,8 @@ angular.module('dripDrankDrunkMoblieApp')
                       '<ui class="list"><li>Invalid Username or Password</li></ui>').show();
                   freeButtons();
               } else {
-                  $state.go('user.history');
+                  console.log("login");
+                  $state.go('user.drink');
               }
           });
       }

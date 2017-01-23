@@ -9,11 +9,6 @@
  */
 angular.module('dripDrankDrunkMoblieApp')
     .controller('DdCtrl', ['$scope', '$state', 'DDService', function ($scope, $state, DDService) {
-        this.awesomeThings = [
-            'HTML5 Boilerplate',
-            'AngularJS',
-            'Karma'
-        ];
 
         var ddPageSetup = function () {
             $('.ui.form')
@@ -52,7 +47,5 @@ angular.module('dripDrankDrunkMoblieApp')
 
         $scope.advance = function () {
             $state.go('user.drink');
-        };
-
-
+    };
     }]);
